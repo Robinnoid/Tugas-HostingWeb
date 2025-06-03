@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kelompok TsukasaXD</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-donuts">
+    <div class="donut"></div><div class="donut"></div><div class="donut"></div><div class="donut"></div>
+    <div class="donut"></div><div class="donut"></div><div class="donut"></div><div class="donut"></div>
+    <div class="donut"></div><div class="donut"></div>
+  </div>
+
+  <header>
+    <div class="title-bar" id="main-page">
+      <h1>Kelompok TsukasaXD</h1>
+      <h2>Selamat datang di WEB Kelompok TsukasaXD</h2>
+      <nav class="anggota-nav">
+        <button onclick="showProfile('nalendra')">Nalendra Putra Wicaksana</button>
+        <button onclick="showProfile('salim')">Salim Alaydrus</button>
+        <button onclick="showProfile('fadli')">Muhammad Fadli</button>
+      </nav>
+    </div>
+
+    <div class="profile-page" id="profile-page" style="display: none;">
+      <div class="profile-header-bar">
+        <h1 id="profile-title"></h1>
+      </div>
+      <section class="about center-profile">
+        <h3 id="profile-name"></h3>
+        <p id="profile-nim"></p>
+        <p id="profile-desc"></p>
+        <br />
+        <button class="back-button" onclick="goBack()">⬅️ Kembali ke Beranda</button>
+      </section>
+    </div>    
+  </header>
+
+  <script>
+    const profiles = {
+      nalendra: {
+        name: "Nalendra Putra Wicaksana",
+        nim: "NIM: 1462300034",
+        desc: "Seorang gamers sejati, TOP GLOBAL SELENA SEDATI"
+      },
+      salim: {
+        name: "Salim Alaydrus",
+        nim: "NIM: 1462300043",
+        desc: "Seorang pengelana yang berasal dari negeri AMPEL."
+      },
+      fadli: {
+        name: "Muhammad Fadli",
+        nim: "NIM: 1462300052",
+        desc: "Seorang NPC."
+      }
+    };
+
+    function showProfile(key) {
+      const profile = profiles[key];
+      document.getElementById('main-page').style.display = 'none';
+      document.getElementById('profile-page').style.display = 'block';
+      document.getElementById('profile-title').textContent = `Profil ${profile.name}`;
+      document.getElementById('profile-name').textContent = profile.name;
+      document.getElementById('profile-nim').textContent = profile.nim;
+      document.getElementById('profile-desc').textContent = profile.desc;
+    }
+
+    function goBack() {
+      document.getElementById('main-page').style.display = 'block';
+      document.getElementById('profile-page').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
